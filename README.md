@@ -7,10 +7,6 @@ utility for the assembly-like language at the University of Freiburg
 ```typ
 #import "ReTI.typ": draw_reti_table, interpret_reti
 
-= Reti Program as a table
-
-== Draw with default options
-
 #draw_reti_table("./example_program.reti", start_idx: 1, storage_name "M")
 
 #let storage = (0,) * 100
