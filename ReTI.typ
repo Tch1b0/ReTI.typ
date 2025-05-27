@@ -2,7 +2,22 @@
   return read(path).split("\n").filter(x => x.len() > 1).map(x => x.replace("\r", ""))
 }
 
-#let draw_reti_table(file_path, storage_name: "S", start_idx: 0) = {
+#let draw_reti_table(file_path, storage_name: "S", start_idx: 0, lang: "de") = {
+  let words = (:)
+  if lang == "de" {
+    words = (
+      "if": "falls",
+      "command": "Befehl",
+      "comment": "Kommentar" 
+    )
+  } else if lang == "en" {
+    words = (
+      "if": "if",
+      "command": "Command",
+      "comment": "Comment" 
+    )
+  }
+
   let to_string(it) = {
     if type(it) == str {
       it
@@ -42,9 +57,9 @@
       $ACC := ACC - #num$
     } else if fn == "JUMP<" {
       if num.at(0) == "-" {
-        $PC := PC - #num.split("-").at(1)", falls ACC < 0"$
+        $PC := PC - #num.split("-").at(1)", "+words.at("if")+" ACC < 0"$
       } else {
-        $PC := PC + #num", falls ACC < 0"$
+        $PC := PC + #num", "+words.at("if")+" ACC < 0"$
       }
     }else {
       ""
@@ -74,7 +89,7 @@
 
   table(
     columns: 3,
-    table.header("PC", "Befehl", "Kommentar"),
+    table.header("PC", words.at("command"), words.at("comment")),
     ..tabled_code
   )
 }

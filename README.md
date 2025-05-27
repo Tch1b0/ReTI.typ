@@ -1,8 +1,15 @@
 # ReTI.typ
 
-utility for the assembly-like language at the University of Freiburg
+[Typst](https://github.com/typst/typst) utility for the assembly-like language "ReTI" at the University of Freiburg.
 
-## usage example
+## features
+
+-   [x] 🧠 interpreter
+-   [x] 📑 code table with automatic math translation/documentation
+
+## usage
+
+`my_document.typ`
 
 ```typ
 #import "ReTI.typ": draw_reti_table, interpret_reti
@@ -15,3 +22,45 @@ utility for the assembly-like language at the University of Freiburg
 #let resulting_storage = results.at(0)
 #let steps = results.at(1)
 ```
+
+`example_program.reti`
+
+```asm
+{ReTI code...} [optional inline documentation prefixed with #]
+```
+
+## example
+
+`my_document.typ`
+
+```typ
+#import "ReTI.typ": draw_reti_table, interpret_reti
+
+= Example Program
+
+#draw_reti_table("./example_program.reti", lang: "en")
+
+#let storage = (0,) * 50
+#{
+  storage.at(0) = 3
+  storage.at(1) = 6
+}
+
+#let results = interpret_reti("./example_program.reti", storage)
+#let resulting_storage = results.at(0)
+#let steps = results.at(1)
+
+With the input fields $S(0) = #storage.at(0)$ and $S(1) = #storage.at(1)$ the program evaluates $S(33) = #resulting_storage.at(33)$
+```
+
+`example_program.reti`
+
+```asm
+LOAD 0
+ADD 1 #GEN; add the second parameter
+STORE 33
+```
+
+`my_document.pdf`
+
+![output_pdf](./example_pdf.png)
