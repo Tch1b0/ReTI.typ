@@ -1,0 +1,7 @@
+[package]
+name = "reti"
+version = "1.0.0"
+entrypoint = "ReTI.typ"
+authors = ["Johannes Pour"]
+license = "MIT"
+description = "utility for the assembly-like language \"ReTI\" at the University of Freiburg"
