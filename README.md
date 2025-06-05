@@ -2,6 +2,11 @@
 
 [Typst](https://github.com/typst/typst) utility for the assembly-like language "ReTI" at the University of Freiburg.
 
+## features
+
+-   [x] 🧠 interpreter
+-   [x] 📑 code table with automatic math translation/documentation
+
 ## installation
 
 ### With [typkg](https://github.com/Tch1b0/typkg)
@@ -29,11 +34,6 @@ MacOS
 ```sh
 git clone https://github.com/Tch1b0/ReTI.typ "~/Library/Application Support/typst/packages/local/reti/1.0.0"
 ```
-
-## features
-
--   [x] 🧠 interpreter
--   [x] 📑 code table with automatic math translation/documentation
 
 ## usage
 
