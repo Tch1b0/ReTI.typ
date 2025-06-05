@@ -2,6 +2,34 @@
 
 [Typst](https://github.com/typst/typst) utility for the assembly-like language "ReTI" at the University of Freiburg.
 
+## installation
+
+### With [typkg](https://github.com/Tch1b0/typkg)
+
+```sh
+typkg https://github.com/Tch1b0/ReTI.typ
+```
+
+### Manually
+
+Windows (Powershell)
+
+```sh
+git clone https://github.com/Tch1b0/ReTI.typ $env:APPDATA/typst/packages/local/reti/1.0.0
+```
+
+Linux
+
+```sh
+git clone https://github.com/Tch1b0/ReTI.typ $XDG_DATA_HOME/typst/packages/local/reti/1.0.0
+```
+
+MacOS
+
+```sh
+git clone https://github.com/Tch1b0/ReTI.typ "~/Library/Application Support/typst/packages/local/reti/1.0.0"
+```
+
 ## features
 
 -   [x] 🧠 interpreter
@@ -12,7 +40,7 @@
 `my_document.typ`
 
 ```typ
-#import "ReTI.typ": draw_reti_table, interpret_reti
+#import "@local/reti:1.0.0": draw_reti_table, interpret_reti
 
 #draw_reti_table("./example_program.reti", start_idx: 1, storage_name "M")
 
@@ -34,7 +62,7 @@
 `my_document.typ`
 
 ```typ
-#import "ReTI.typ": draw_reti_table, interpret_reti
+#import "@local/reti:1.0.0": draw_reti_table, interpret_reti
 
 = Example Program
 
